@@ -97,7 +97,7 @@
 	
 	if (value)
 	{
-		returnValue = [[HIDValue alloc] initWithValue:value];
+		returnValue = [[HIDValue alloc] initWithValue:value element:nil]; // FIXME : element should not be nil
 		CFRelease(value);
 	}
 	
@@ -111,7 +111,7 @@
 	
 	if (value)
 	{
-		returnValue = [[HIDValue alloc] initWithValue:value];
+        returnValue = [[HIDValue alloc] initWithValue:value  element:nil]; // FIXME : element should not be nil
 		CFRelease(value);
 	}
 	

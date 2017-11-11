@@ -10,6 +10,7 @@
 #import "HIDValue+Private.h"
 #import "HIDElement+Private.h"
 @import IOKit.hid;
+#include <mach/mach_time.h>
 
 
 @implementation HIDValue

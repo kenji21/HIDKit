@@ -149,8 +149,15 @@
 	IOHIDValueRef value = NULL;
 //	IOReturn success = IOHIDDeviceGetValueWithCallback(_device.device, _element, &value, mach_absolute_time(), &HIDDeviceInputValueCallback, NULL);
 	IOReturn success = IOHIDDeviceGetValue(_device.device, _element, &value);
-	HIDValue *newValue = [[HIDValue alloc] initWithValue:value element:self];
-	[self didUpdateValue:newValue];
+    if( success != kIOReturnSuccess )
+    {
+        NSLog(@"failed to IOHIDDeviceGetValue : %d", success);
+    }
+    else
+    {
+        HIDValue *newValue = [[HIDValue alloc] initWithValue:value element:self];
+        [self didUpdateValue:newValue];
+    }
 }
 
 - (void)didUpdateValue:(HIDValue *)value
